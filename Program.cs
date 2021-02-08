@@ -3,16 +3,18 @@ using System.IO;
 using System.Threading;
 using LibVLCSharp.Shared;
 using System.Threading.Tasks;
-
 namespace musique
 {
 
     class Program
     {
-        public static int onEndReachedIndex;
-        public static CancellationTokenSource stopToken = new CancellationTokenSource();
-        public static CancellationToken token;
-        public static string[] fileEntries = Directory.GetFiles("/home/pi/music/");
+        public static string folderCreator(string path)
+        {
+        Directory.CreateDirectory(path);
+
+
+            return path;
+        }
         public static long forwardFile(long position, long maxLength)
         {
             if (position + 5000 > maxLength)
@@ -53,10 +55,18 @@ namespace musique
             return index + 1;
 
         }
+
+        public static string path = folderCreator(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic) + "/console-app");
+        public static int onEndReachedIndex;
+        public static CancellationTokenSource stopToken = new CancellationTokenSource();
+        public static CancellationToken token;
+        public static string[] fileEntries = Directory.GetFiles(path);
+
         static void Main(string[] args)
         {
             Boolean loop = true;
             Core.Initialize();
+            Console.WriteLine("Put only audio files in " + path + " so the software can read it.");
             using (var libvlc = new LibVLC())
             {
                 MediaPlayer mediaPlayer = new MediaPlayer(libvlc);
@@ -66,8 +76,16 @@ namespace musique
                     token = new CancellationToken();
                     stopToken = new CancellationTokenSource();
                     token = stopToken.Token;
-                    var media = new Media(libvlc, fileEntries[musicIndex]);
-                    mediaPlayer.Play(media);
+                    try
+                    {
+                        var media = new Media(libvlc, fileEntries[musicIndex]);
+                        mediaPlayer.Play(media);
+                    }
+                    catch (IndexOutOfRangeException)
+                    {
+                        Console.WriteLine("There are no audio files in " + path + " !");
+                        Environment.Exit(1);
+                    }
 
                     inputHandler handleTask = new inputHandler();
                     try
