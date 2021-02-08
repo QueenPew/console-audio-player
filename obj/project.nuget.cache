@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "2Y35K8VvBZ5nogLF66nz6jsqGr3BVfZYgp/0808/8AsAZRFoBTncp9hVJLh4iCXUR53Yohf0q92wSCIqTzqSvA==",
+  "success": true,
+  "projectFilePath": "C:\\Dev\\c#\\musique\\musique.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PC-GABRIEL\\.nuget\\packages\\libvlcsharp\\3.4.9\\libvlcsharp.3.4.9.nupkg.sha512",
+    "C:\\Users\\PC-GABRIEL\\.nuget\\packages\\videolan.libvlc.windows\\3.0.11\\videolan.libvlc.windows.3.0.11.nupkg.sha512",
+    "C:\\Users\\PC-GABRIEL\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\5.0.1\\microsoft.netcore.app.runtime.linux-x64.5.0.1.nupkg.sha512",
+    "C:\\Users\\PC-GABRIEL\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\5.0.1\\microsoft.aspnetcore.app.runtime.linux-x64.5.0.1.nupkg.sha512",
+    "C:\\Users\\PC-GABRIEL\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\5.0.1\\microsoft.netcore.app.host.linux-x64.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
